@@ -20,11 +20,9 @@ negrito = '\033[;1m	'
 reset = '\033[0;0m'
 
 back = False
-cont = 1
 import os
 
 while (back == False):
-    cont = +1
     print(f'''
     {red}
                           :::!~!!!!!:.
